@@ -1,0 +1,62 @@
+.body {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-origin: border-box;
+    background-position: center bottom;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+}
+
+.body .title {
+    background-color: #60c2e6;
+    color: white;
+    top: 0;
+    font-size: 15px;
+    padding: 15px 0;
+    margin: auto;
+    text-align: center;
+}
+
+.body .title .titleText {
+}
+
+.body .sub_Main {
+    width: 90%;
+    margin: auto;
+    min-height: 350px;
+}
+
+.body .sub_Main .exp {
+    text-align: center;
+    padding: 7vw 0;
+    font-size: 5vw;
+    color: #202020;
+    line-height: 150%;
+    border-bottom: 1px solid #505050;
+    margin: auto;
+}
+
+.lodingOutBox {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    z-index: 2;
+}
+
+.lodingOutBox > .lodingInnerBox h3, h4, h5 {
+    text-align: center;
+}
+
+.lodingOutBox > .lodingInnerBox img {
+    display: flex;
+    width: 40%;
+    margin: auto;
+    padding-top: 20px;
+}
+

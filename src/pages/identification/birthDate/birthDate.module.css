@@ -1,0 +1,82 @@
+.inputInfo {
+    margin-top: 10px;
+    font-size: 4.5vw;
+    width: 100%;
+}
+
+.inputInfo td {
+    background-color: #ffffff;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    color: #3d3d3d;
+    text-indent: 0px;
+}
+
+.inputInfo tr {
+    background-color: #ffffff;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    color: #505050;
+    text-align: left;
+    text-indent: 5px;
+}
+
+.inputInfo td .input {
+    height: 9vw;
+    border: 1px solid #aaa;
+    border-radius: 0.5vw;
+    font-size: 4.5vw;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.inputInfo tr label {
+    margin-right: 20px;
+}
+
+.input_select1 {
+    color: #3d3d3d;
+    border-radius: 0.5vw;
+    border: 1px solid #aaa;
+    padding: 0 1vw;
+    width: 36%;
+    background: #fefefe;
+    box-sizing: border-box;
+    height: 9vw;
+    font-size: 4.5vw;
+    text-align: left;
+}
+
+.input_select2 {
+    color: #3d3d3d;
+    border-radius: 0.5vw;
+    border: 1px solid #aaa;
+    padding: 0 1vw;
+    width: 30%;
+    background: #fefefe;
+    box-sizing: border-box;
+    height: 9vw;
+    font-size: 4.5vw;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.txt_mobileView {
+    display: block;
+}
+
+.info_button {
+    background-color: #8ebafa;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 2% 10%;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.personalModalText{
+    background-color: black;
+    padding: 1px;
+    color: white;
+}

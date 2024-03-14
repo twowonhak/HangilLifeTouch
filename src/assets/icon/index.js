@@ -1,0 +1,1 @@
+export {ReactComponent as IconBack} from './ic-back.svg'

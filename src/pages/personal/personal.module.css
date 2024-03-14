@@ -1,0 +1,57 @@
+.mainBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.outBox {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    margin-left: 0;
+    width: 90%;
+    overflow: auto;
+    font-size: 3vw;
+    text-align: left;
+    background-color: white;
+    z-index: 100;
+    border: 1px solid #000;
+    border-radius: 4vw;
+    padding-bottom: 4vw;
+}
+
+.innerBox {
+    padding: 3vw 7%;
+}
+
+.title {
+    font-size: 5.5vw;
+    font-weight: 700;
+    color: black;
+    border-bottom: 2px solid #009aff;
+    padding: 2vw 0 4vw;
+    text-align: center;
+}
+
+.closeBtn {
+    width: 7vw;
+    height: 7vw;
+    background: #000;
+    border-radius: 3.5vw;
+    border: 0;
+    padding: 1vw;
+    margin: 1vw;
+    color: #fff;
+    font-size: 4vw;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    text-align: center;
+}
+
+.text {
+
+}
