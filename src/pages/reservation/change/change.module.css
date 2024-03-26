@@ -1,0 +1,156 @@
+.mainBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.outBox {
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    margin-left: 0;
+    width: 90%;
+    overflow: auto;
+    font-size: 3vw;
+    text-align: left;
+    background-color: white;
+    z-index: 100;
+    border: 1px solid #000;
+    border-radius: 4vw;
+    padding-bottom: 4vw;
+}
+
+.innerBox {
+    padding: 3vw 7%;
+}
+
+.title {
+    font-size: 5.5vw;
+    font-weight: 700;
+    color: black;
+    border-bottom: 2px solid #009aff;
+    padding: 2vw 0 4vw;
+    text-align: center;
+}
+
+.closeBtn {
+    width: 7vw;
+    height: 7vw;
+    background: #000;
+    border-radius: 3.5vw;
+    border: 0;
+    padding: 1vw;
+    margin: 1vw;
+    color: #fff;
+    font-size: 4vw;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    text-align: center;
+}
+
+
+.pText {
+    color: blue;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.text p {
+    font-size: 12px;
+    padding: 2px 0 5px 0;
+}
+
+
+.inputInfo {
+    font-size: 3vw;
+    width: 100%;
+}
+
+.inputInfo td {
+    background-color: #ffffff;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    color: #3d3d3d;
+    text-indent: 0px;
+}
+
+.inputInfo tr {
+    background-color: #ffffff;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    color: #505050;
+    text-align: left;
+    text-indent: 5px;
+}
+
+.inputInfo td .input {
+    height: 9vw;
+    border: 1px solid #aaa;
+    border-radius: 0.5vw;
+    font-size: 4.5vw;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.textarea {
+    height: 15vw;
+    border: 1px solid #aaa;
+    font-size: 3vw;
+    width: 100%;
+}
+
+/*.inputInfo tr label {*/
+/*    margin-right: 20px;*/
+/*}*/
+
+.checkbox{
+    margin-left: 4px ;
+    margin-right: 8px ;
+}
+
+.input_select1 {
+    color: #3d3d3d;
+    border-radius: 0.5vw;
+    border: 1px solid #aaa;
+    padding: 0 1vw;
+    width: 36%;
+    background: #fefefe;
+    box-sizing: border-box;
+    height: 7vw;
+    font-size: 4vw;
+    text-align: left;
+}
+
+.input_select2 {
+    color: #3d3d3d;
+    border-radius: 0.5vw;
+    border: 1px solid #aaa;
+    padding: 0 1vw;
+    width: 30%;
+    background: #fefefe;
+    box-sizing: border-box;
+    height: 7vw;
+    font-size: 4vw;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.info_button_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info_button {
+    background-color: #8ebafa;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 2% 10%;
+    font-weight: bold;
+    letter-spacing: 3px;
+}

@@ -1,5 +1,7 @@
 export {default as Main} from './main'
 export {default as Memu} from './memu'
+export {default as Test} from './test'
 export {default as Identification} from './identification'
 export {default as BirthDate} from './identification/birthDate'
 export {default as ChartNumber} from './identification/chartNumber'
+export {default as Reservation} from './reservation'

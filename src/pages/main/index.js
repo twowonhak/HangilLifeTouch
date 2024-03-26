@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import logo from "../../logo.svg";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import style from "./main.module.css"
 
 export default function Main() {

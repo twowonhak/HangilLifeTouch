@@ -5,6 +5,7 @@ import inputOnlyNumber from "../../../utiles/input/inputOnlyNumber";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {ko} from "date-fns/locale";
+import {Title} from "../../../components";
 
 export default function ChartNumber() {
 
@@ -15,7 +16,7 @@ export default function ChartNumber() {
 
   return (
       <div className="body">
-        <div className="title">본인 인증</div>
+        <Title text={"본인 인증"} nav={"/"}/>
         <div className="sub_Main">
           <div className="exp">
             <span>본인 인증을 위한</span>

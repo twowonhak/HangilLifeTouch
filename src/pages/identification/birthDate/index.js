@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import style from "../../identification/birthDate/birthDate.module.css";
 import YearSelectOption from "../../../utiles/YearSelectOption";
-import Personal from "../../personal";
-import DatePicker from "react-datepicker";
-import {ko} from "date-fns/locale";
+import Personal from "../personal";
 import inputPhoneNumber from "../../../utiles/input/inputPhoneNumber";
 import inputData from "../../../utiles/input/inputData";
 import inputDataCleaned from "../../../utiles/input/inputDataCleaned";
 import {format} from 'date-fns';
-import {Loding} from "../../../components";
-import {testGetApi} from "../../../api/testApi";
+import {Loding, Title} from "../../../components";
+import onSave from "./birthDate";
+import {useNavigate} from "react-router-dom";
+import {useCookies} from "react-cookie";
+import {browserName, deviceType, osName} from 'react-device-detect';
 
 export default function BirthDate() {
 
@@ -20,13 +21,22 @@ export default function BirthDate() {
     "birYear": format(new Date(), 'yyyy').toString(),
     "birMonth": "01",
     "birDay": "01",
-    "sex": "",
+    // "sex": "",
     "phoneNo": "",
-    "vistdat": new Date(),
+    // "vistdat": new Date(),
     "personal": "",
+    "diviceTy": deviceType,
+    "osNm": osName,
+    "browser" : browserName
   })
 
   const [isOpenLoding, setIsOpenLoding] = useState(false)
+
+  const navigate = useNavigate();
+
+  const [cookies, setCookie, removeCookie] = useCookies(['CHARTNO_JWT']);
+
+  //////////////////////////
 
   const onInputData = (e) => {
     inputData(e, infoData, setInfoData)
@@ -40,35 +50,13 @@ export default function BirthDate() {
     inputPhoneNumber(e, infoData, setInfoData)
   }
 
-  const onSave = (e) => {
-    e.preventDefault()
-
-    testGetApi().then((res) => {
-      if (res.resultCode === '0000') {
-
-      } else {
-
-      }
-    })
-
-
-    //  if (infoData.name.length === 0 || infoData.birYear.length === 0 || infoData.birMonth.length === 0 || infoData.birDay.length === 0 || infoData.sex.length === 0 || infoData.phoneNo.length === 0) {
-    //    alert("입력 하시지 않은 정보가 있습니다.")
-    //  } else {
-    //    if (infoData.personal === 'N') {
-    //      alert("개인정보 취급 방침을 동의하시지 않으시면 진행하시기 어렵습니다.")
-    //    } else {
-    //      setIsOpenLoding(true)
-    //      setIsOpenLoding(false)
-    //    }
-    //  }
-  }
-
   return (
       <>
         <div className="body">
+
           <Loding isOpen={isOpenLoding}/>
-          <div className="title">본인 인증</div>
+
+          <Title text={"본인 인증"} nav={"/"}/>
           <div className="sub_Main">
             <div className="exp">
               <span>본인 인증은 병원에 </span>
@@ -76,7 +64,7 @@ export default function BirthDate() {
               <span>등록 되어 있는 정보가 필요 합니다.</span>
             </div>
             <div className="content">
-              <form onSubmit={onSave}>
+              <form onSubmit={(e) => onSave(e, navigate, setCookie, infoData, setIsOpenLoding)}>
                 <table border="0" cellPadding="0" cellSpacing="0" className={style.inputInfo} align="center">
                   <tbody>
                   <tr>
@@ -144,13 +132,13 @@ export default function BirthDate() {
                       </select>
                     </td>
                   </tr>
-                  <tr>
-                    <td>성별</td>
-                    <td>
-                      <label><input type="radio" name="sex" value="M" onChange={onInputData}/> 남</label>
-                      <label><input type="radio" name="sex" value="F" onChange={onInputData}/> 여</label>
-                    </td>
-                  </tr>
+                  {/*<tr>*/}
+                  {/*  <td>성별</td>*/}
+                  {/*  <td>*/}
+                  {/*    <label><input type="radio" name="sex" value="M" onChange={onInputData}/> 남</label>*/}
+                  {/*    <label><input type="radio" name="sex" value="F" onChange={onInputData}/> 여</label>*/}
+                  {/*  </td>*/}
+                  {/*</tr>*/}
                   <tr>
                     <td>전화번호</td>
                     <td>
@@ -158,16 +146,16 @@ export default function BirthDate() {
                              onInput={onInputPhoneNumber} placeholder="숫자만 입력 해주세요."/>
                     </td>
                   </tr>
-                  <tr>
-                    <td>방문일자</td>
-                    <td><DatePicker className={style.input}
-                                    locale={ko}
-                                    minDate={new Date()}
-                                    closeOnScroll={true}
-                                    selected={infoData.vistdat}
-                                    onChange={(date) => setInfoData((prve => ({...prve, "vistdat": date})))}
-                                    dateFormat="yyyy-MM-dd"/></td>
-                  </tr>
+                  {/*<tr>*/}
+                  {/*  <td>방문일자</td>*/}
+                  {/*  <td><DatePicker className={style.input}*/}
+                  {/*                  locale={ko}*/}
+                  {/*                  minDate={new Date()}*/}
+                  {/*                  closeOnScroll={true}*/}
+                  {/*                  selected={infoData.vistdat}*/}
+                  {/*                  onChange={(date) => setInfoData((prve => ({...prve, "vistdat": date})))}*/}
+                  {/*                  dateFormat="yyyy-MM-dd"/></td>*/}
+                  {/*</tr>*/}
                   <tr>
                     <td rowSpan="2">
                       <p className="txt_mobileView">개인정보</p>

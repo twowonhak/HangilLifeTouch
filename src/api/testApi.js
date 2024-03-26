@@ -1,7 +1,8 @@
 import customAxios from '../lib/customAxios'
+import {identificationApi} from "./identificationApi";
 
-export const testGetApi = async () => {
-  return await customAxios.get("/test/get")
+export const testGetApi = async (infoData) => {
+  return await customAxios.get("/test/get", infoData)
 }
 
 export const testPostApi = async (params) => {
@@ -9,5 +10,14 @@ export const testPostApi = async (params) => {
 }
 
 export const testFormApi = async (params) => {
-  return await customAxios.formSubmit("/test/get", params);
+  return await customAxios.post("/test/get", params);
+}
+
+export const setTokenApi = async (params) => {
+  console.log(params)
+  return await customAxios.post("/test/setToken", params);
+}
+
+export const getTokenApi = async (params) => {
+  return await customAxios.post("/test/getToken", params);
 }

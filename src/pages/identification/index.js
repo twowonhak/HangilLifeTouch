@@ -7,7 +7,7 @@ import {Exp} from "../../components";
 export default function Identification() {
   return (
       <div className="body">
-        <Title text={"본인인증"}/>
+        <Title text={"본인인증"} nav={"/"}/>
         <div className="sub_Main">
           <Exp text1={"본인 인증을"} text2={"하실 방법을 선택 해주세요."}/>
 
