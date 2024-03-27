@@ -2,42 +2,57 @@ import React, {useEffect, useState} from "react";
 import style from './change.module.css'
 import {browserName, deviceType, osName} from "react-device-detect";
 import inputData from "../../../utiles/input/inputData";
-import timeAmPm from "../../../utiles/input/timeAmPm";
 import todayAndTomorrow from "../../../utiles/input/todayAndTomorrow";
 import onSave from "./onSave";
 import NextYearSelectOption from "../../../utiles/NextYearSelectOption";
+import inputCheckbox from "../../../utiles/input/inputCheckbox";
+import {Loding} from "../../../components";
+import {inputDateDayDefault, inputDateMonthDefault, inputDateYearDefault} from "../../../utiles/input/inputDateDefault";
 
 export default function Change({isOpen, setIsOpen, item}) {
 
-  const [infoData, setInfoData] = useState({
-    "chartNo": "",
-    "vistday": "",
-    "birYear": "",
-    "birMonth": "",
-    "birDay": "",
-    "time": "",
-    "diviceTy": deviceType,
-    "osNm": osName,
-    "browser": browserName,
-    "todayRes": ""
-  })
+  const [infoData, setInfoData] = useState({})
+  const [isOpenLoding, setIsOpenLoding] = useState(false)
 
   useEffect(() => {
     let obj = null;
-    let vistdat = null
+    let appDat = null
     if (item != null) {
-      vistdat = "" + item.vistdat
-      let todayRes = todayAndTomorrow(vistdat)
+      appDat = "" + item.appDat
+      let todayRes = todayAndTomorrow(appDat)
       obj = {
-        "chartNo": item.chartNo,
-        "vistday": item.vistdat,
-        "birYear": vistdat.substring(0, 4),
-        "birMonth": vistdat.substring(4, 6),
-        "birDay": vistdat.substring(6, 8),
-        "time": timeAmPm(item.apptime),
-        "diviceTy": deviceType,
-        "osNm": osName,
-        "browser": browserName,
+        "appDat": item.appDat,
+        "appTime": item.appTime,
+        "diagCd": item.diagCd,
+        "doctCd": item.doctCd,
+
+        "changeAppDatStrYear" : inputDateYearDefault() ,
+        "changeAppDatStrMonth" : inputDateMonthDefault() ,
+        "changeAppDatStrDay" : inputDateDayDefault() ,
+
+        "changeAppDatEndYear" : inputDateYearDefault() ,
+        "changeAppDatEndMonth" : inputDateMonthDefault() ,
+        "changeAppDatEndDay" : inputDateDayDefault() ,
+
+        "changeAppDatYn": false,
+
+        "timeAm" : false ,
+        "timePm" : false ,
+
+        "week1": false,
+        "week2": false,
+        "week3": false,
+        "week4": false,
+        "week5": false,
+        "week6": false,
+
+        "doctYnTy": false,
+        "reqText": "",
+
+        "crDiviceTy": deviceType,
+        "crOsNm": osName,
+        "crBrowser": browserName,
+
         "todayRes": todayRes
       }
       setInfoData(obj)
@@ -48,11 +63,18 @@ export default function Change({isOpen, setIsOpen, item}) {
     inputData(e, infoData, setInfoData)
   }
 
+  const onInputCheck = (e) => {
+    inputCheckbox(e, infoData, setInfoData)
+  }
+
   if (!isOpen)
     return null;
   else
     return (
         <div className={style.mainBox}>
+
+          <Loding isOpen={isOpenLoding}/>
+
           <div className={style.outBox}>
             <button className={style.closeBtn} onClick={() => setIsOpen(false)}>X</button>
 
@@ -68,11 +90,11 @@ export default function Change({isOpen, setIsOpen, item}) {
                 <tr>
                   <td>예약일자</td>
                   <td>
-                    <select name="birYear" value={infoData.birYear} className={style.input_select1}
+                    <select name="changeAppDatStrYear" disabled={infoData.changeAppDatYn} value={infoData.changeAppDatStrYear} className={style.input_select1}
                             onChange={onInputData}>
                       <NextYearSelectOption/>
                     </select>
-                    <select name="birMonth" value={infoData.birMonth} className={style.input_select2}
+                    <select name="changeAppDatStrMonth" disabled={infoData.changeAppDatYn} value={infoData.changeAppDatStrMonth} className={style.input_select2}
                             onChange={onInputData}>
                       <option value="01">1</option>
                       <option value="02">2</option>
@@ -87,7 +109,7 @@ export default function Change({isOpen, setIsOpen, item}) {
                       <option value="11">11</option>
                       <option value="12">12</option>
                     </select>
-                    <select name="birDay" value={infoData.birDay} className={style.input_select2}
+                    <select name="changeAppDatStrDay" disabled={infoData.changeAppDatYn} value={infoData.changeAppDatStrDay} className={style.input_select2}
                             onChange={onInputData}>
                       <option value="01">1</option>
                       <option value="02">2</option>
@@ -126,11 +148,11 @@ export default function Change({isOpen, setIsOpen, item}) {
                 <tr>
                   <td style={{textAlign: 'center'}}><span style={{fontWeight: 'bold'}}>~</span></td>
                   <td>
-                    <select name="birYear" value={infoData.birYear} className={style.input_select1}
+                    <select name="changeAppDatEndYear" disabled={infoData.changeAppDatYn} value={infoData.changeAppDatEndYear} className={style.input_select1}
                             onChange={onInputData}>
                       <NextYearSelectOption/>
                     </select>
-                    <select name="birMonth" value={infoData.birMonth} className={style.input_select2}
+                    <select name="changeAppDatEndMonth" disabled={infoData.changeAppDatYn} value={infoData.changeAppDatEndMonth} className={style.input_select2}
                             onChange={onInputData}>
                       <option value="01">1</option>
                       <option value="02">2</option>
@@ -145,7 +167,7 @@ export default function Change({isOpen, setIsOpen, item}) {
                       <option value="11">11</option>
                       <option value="12">12</option>
                     </select>
-                    <select name="birDay" value={infoData.birDay} className={style.input_select2}
+                    <select name="changeAppDatEndDay" disabled={infoData.changeAppDatYn} value={infoData.changeAppDatEndDay} className={style.input_select2}
                             onChange={onInputData}>
                       <option value="01">1</option>
                       <option value="02">2</option>
@@ -183,14 +205,14 @@ export default function Change({isOpen, setIsOpen, item}) {
                 </tr>
                 <tr>
                   <td></td>
-                  <td><label>상관 없음<input type="checkbox" className={style.checkbox}/></label></td>
+                  <td><label>상관 없음<input type="checkbox" name="changeAppDatYn" className={style.checkbox} onChange={onInputCheck}/></label></td>
                 </tr>
                 <tr>
                   <td>시간</td>
                   <td>
 
-                    <label>오전<input type="checkbox" className={style.checkbox}/></label>
-                    <label>오후<input type="checkbox" className={style.checkbox}/></label>
+                    <label>오전<input name="timeAm" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
+                    <label>오후<input name="timePm" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
 
                     {/*<input type="checkbox"/>*/}
                     {/*<label><input type="radio" name="time" value="am" checked={infoData.time === "am"}*/}
@@ -202,22 +224,23 @@ export default function Change({isOpen, setIsOpen, item}) {
                 <tr>
                   <td>요일</td>
                   <td colSpan="5">
-                    <label>월<input type="checkbox" className={style.checkbox}/></label>
-                    <label>화<input type="checkbox" className={style.checkbox}/></label>
-                    <label>수<input type="checkbox" className={style.checkbox}/></label>
-                    <label>목<input type="checkbox" className={style.checkbox}/></label>
-                    <label>금<input type="checkbox" className={style.checkbox}/></label>
+                    <label>월<input name="week1" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
+                    <label>화<input name="week2" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
+                    <label>수<input name="week3" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
+                    <label>목<input name="week4" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
+                    <label>금<input name="week5" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
+                    <label>토<input name="week6" type="checkbox" className={style.checkbox} onChange={onInputCheck}/></label>
                   </td>
                 </tr>
                 <tr>
                   <td>진료의</td>
-                  <td><label>다른 의료진 변경 허용<input type="checkbox" className={style.checkbox}/></label></td>
+                  <td><label>다른 의료진 변경 허용<input type="checkbox" name="doctYnTy" className={style.checkbox} onChange={onInputCheck}/></label></td>
                 </tr>
                 </tbody>
               </table>
 
               <p className={style.pText}>요청 사항</p>
-              <textarea className={style.textarea}/>
+              <textarea name="reqText" className={style.textarea} maxLength={60} onChange={onInputData}/>
 
               <div className={style.text}>
                 <br/>
@@ -235,8 +258,7 @@ export default function Change({isOpen, setIsOpen, item}) {
                 infoData.todayRes !== "other"
                     ?
                     <button type="button" className={style.info_button} style={{backgroundColor: "red"}}>변경 불가</button>
-                    : <button type="submit" onClick={() => {
-                      onSave(infoData)
+                    : <button type="submit" onClick={() => {onSave(infoData, setIsOpenLoding, setIsOpen)
                     }} className={style.info_button}>변경 신청</button>
               }
             </div>

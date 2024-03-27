@@ -5,8 +5,8 @@
   @ setData : setState
  */
 
-export default function inputCheckbox(data, setData) {
-  const {name,checked} = event.target;
+export default function inputCheckbox(e, data, setData) {
+  const {name,checked} = e.currentTarget;
   setData({
     ...data,
     [name]: checked

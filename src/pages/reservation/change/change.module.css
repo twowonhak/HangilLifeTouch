@@ -17,7 +17,7 @@
     font-size: 3vw;
     text-align: left;
     background-color: white;
-    z-index: 100;
+    z-index: 5;
     border: 1px solid #000;
     border-radius: 4vw;
     padding-bottom: 4vw;
@@ -97,7 +97,7 @@
 }
 
 .textarea {
-    height: 15vw;
+    height: 8vw;
     border: 1px solid #aaa;
     font-size: 3vw;
     width: 100%;

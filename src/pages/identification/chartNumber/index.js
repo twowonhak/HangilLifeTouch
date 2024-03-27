@@ -10,7 +10,7 @@ import {Title} from "../../../components";
 export default function ChartNumber() {
 
   const [infoData, setInfoData] = useState({
-    "vistdat": new Date(),
+    "appDat": new Date(),
     "chartNo": ""
   })
 
@@ -32,8 +32,8 @@ export default function ChartNumber() {
                                 locale={ko}
                                 minDate={new Date()}
                                 closeOnScroll={true}
-                                selected={infoData.vistdat}
-                                onChange={(date) => setInfoData((prve => ({...prve, "vistdat": date})))}
+                                selected={infoData.appDat}
+                                onChange={(date) => setInfoData((prve => ({...prve, "appDat": date})))}
                                 dateFormat="yyyy-MM-dd"/></td>
               </tr>
               <tr>

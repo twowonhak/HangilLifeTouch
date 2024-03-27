@@ -23,7 +23,7 @@ export default function BirthDate() {
     "birDay": "01",
     // "sex": "",
     "phoneNo": "",
-    // "vistdat": new Date(),
+    // "appDat": new Date(),
     "personal": "",
     "diviceTy": deviceType,
     "osNm": osName,
@@ -152,8 +152,8 @@ export default function BirthDate() {
                   {/*                  locale={ko}*/}
                   {/*                  minDate={new Date()}*/}
                   {/*                  closeOnScroll={true}*/}
-                  {/*                  selected={infoData.vistdat}*/}
-                  {/*                  onChange={(date) => setInfoData((prve => ({...prve, "vistdat": date})))}*/}
+                  {/*                  selected={infoData.appDat}*/}
+                  {/*                  onChange={(date) => setInfoData((prve => ({...prve, "appDat": date})))}*/}
                   {/*                  dateFormat="yyyy-MM-dd"/></td>*/}
                   {/*</tr>*/}
                   <tr>

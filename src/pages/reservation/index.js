@@ -19,6 +19,7 @@ export default function Reservation() {
   useEffect(() => {
     reservationListSelect(cookies.CHARTNO_JWT).then((res) => {
       if (res.resultCode === "0000") {
+        console.log(res.data)
         setIsLodingOpen(false)
         setInfoData(res.data)
       } else {
@@ -27,7 +28,7 @@ export default function Reservation() {
     }).catch((e) => {
       console.error(e)
     })
-  }, [])
+  }, [isChangeOpen])
 
   const select = (item) => {
     reservationExamineSelect(item).then((res) => {
@@ -55,7 +56,7 @@ export default function Reservation() {
         if (res.resultCode === "0000") {
           console.log(res.data)
           setInfoData(res.data)
-          alert(item.vistdatdy + "에 예약이 (모두) 취소 되었습니다.")
+          alert(item.appDatdy + "에 예약이 (모두) 취소 되었습니다.")
         } else {
           console.error(res)
         }
@@ -85,7 +86,7 @@ export default function Reservation() {
                             <div key={index} className={style.card}>
                               <div>
                                 <span className={style.miniTitle}>진료과 : </span>
-                                <span>{item.diagcd}</span>
+                                <span>{item.diagNm}</span>
                               </div>
                               <div>
                                 <span className={style.miniTitle}>진료의사 : </span>
@@ -93,11 +94,11 @@ export default function Reservation() {
                               </div>
                               <div>
                                 <span className={style.miniTitle}>방문일자 : </span>
-                                <span>{item.vistdatdy}</span>
+                                <span>{item.appDatdy}</span>
                               </div>
                               <div>
                                 <span className={style.miniTitle}>방문시간 : </span>
-                                <span>{item.apptime}</span>
+                                <span>{item.appTime}</span>
                               </div>
                               <button onClick={() => select(item)}>검사 조회</button>
                               <button onClick={() => change(item)}>예약 변경 신청</button>
